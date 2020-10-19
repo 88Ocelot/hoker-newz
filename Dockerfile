@@ -5,7 +5,7 @@ RUN apk update && \
     apk add postgresql-dev
 COPY requirements.txt .
 
-RUN mkdir ${PROJECT_DIR} && cd ${PROJECT_DIR}
+#RUN mkdir ${PROJECT_DIR} && cd ${PROJECT_DIR}
 RUN python -m pip install --upgrade pip && \
     pip install -r requirements.txt
 RUN apk del .build-deps
