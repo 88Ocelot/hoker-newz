@@ -7,7 +7,7 @@
 *.sql.gz
 .cache
 .project
-.idea
+.idea/
 .pydevproject
 .idea/workspace.xml
 .DS_Store
@@ -18,7 +18,7 @@ __pycache__
 dist
 docs
 env
-venv
+venv/
 logs
 src/{{ project_name }}/settings/local.py
 src/node_modules
@@ -28,3 +28,7 @@ stats
 Dockerfile
 pg-Dockerfile
 docker-compose.yml
+redis-data/
+redis.conf/
+db.sqlite3
+celerybeat-schedule
