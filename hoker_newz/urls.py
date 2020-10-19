@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 apipatterns = [
-    path('', include('posts.api.urls'))
+    path('', include('posts.api.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 urlpatterns = [
     path('admin/', admin.site.urls),
+
 ]
 urlpatterns += apipatterns

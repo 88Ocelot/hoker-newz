@@ -9,11 +9,11 @@ from upvotes.api.serializers import UpvoteSerializer
 class PostDetailSerializer(serializers.ModelSerializer):
     author = serializers.StringRelatedField()
     comments = serializers.HyperlinkedIdentityField(view_name='posts-comments-list', read_only=True)
-    likes = serializers.HyperlinkedIdentityField(view_name='posts-comments-list', read_only=True)
+    upvotes = serializers.HyperlinkedIdentityField(view_name='posts-upvote-list', read_only=True)
+    upvote_url = serializers.HyperlinkedIdentityField(view_name='posts-upvote', read_only=True)
     class Meta:
         model = Post
-        fields = ('title', 'body','author','comments','likes')
-        read_only_fields = ('id', 'author', 'created_at', 'updated_at', 'get_upvotes')
+        fields = ('title', 'body','author','comments','upvotes', 'upvote_url','created_at','updated_at',)
 
 
 class PostListSerializer(serializers.ModelSerializer):
