@@ -40,7 +40,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: /bin/sh -c "cd ${PROJECT_DIR}  && celery -A hoker_newz worker -l info"
+    command: /bin/sh -c "cd ${PROJECT_DIR}  && celery -A hoker_newz worker --loglevel=DEBUG"
+    env_file:
+      - .env
     volumes:
       - ./:${PROJECT_DIR}
     depends_on:
@@ -48,7 +50,9 @@ services:
       - redis
   celery-beat:
     build: .
-    command: /bin/sh -c "cd ${PROJECT_DIR} && celery -A hoker_newz beat -l info"
+    command: /bin/sh -c "cd ${PROJECT_DIR} && celery -A hoker_newz beat --loglevel=DEBUG"
+    env_file:
+      - .env
     volumes:
       - ./:${PROJECT_DIR}
     depends_on:
