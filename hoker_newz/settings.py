@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from datetime import timedelta
 from pathlib import Path
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -78,7 +78,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'hoker_newz.wsgi.application'
-
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(hours=5),
+}
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
