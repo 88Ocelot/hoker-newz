@@ -16,7 +16,8 @@ class CommentMixin:
 
     @decorators.action(url_path='comment', detail='comment-create', methods=('POST',), )
     def comment(self, request, pk):
-        serializer = self.get_serializer_class()(data=request.data)
+        print(request.user)
+        serializer = self.get_serializer_class()(data=request.data, context={'request': request})
         if serializer.is_valid():
             comment = Comment.objects.create(**serializer.validated_data, post_id=pk)
             return Response(serializer.data)

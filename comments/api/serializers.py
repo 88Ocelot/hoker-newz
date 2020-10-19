@@ -17,6 +17,7 @@ class CommentListSerializers(serializers.ModelSerializer):
 
 
 class CommentCreateSerializers(serializers.ModelSerializer):
+    user = serializers.CharField(default=serializers.CurrentUserDefault())
     body = serializers.CharField(required=True)
 
     class Meta:
