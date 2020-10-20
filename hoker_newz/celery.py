@@ -3,7 +3,10 @@ from datetime import timedelta
 
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hoker_newz.settings")
+if os.environ.get('ENV', 'LOCAL') == 'LOCAL':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hoker_newz.settings.local")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hoker_newz.settings.prod")
 django.setup()
 from celery import Celery
 from django.utils import timezone
