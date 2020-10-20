@@ -83,7 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "hoker_newz.wsgi.application"
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(hours=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=48),
 }
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
