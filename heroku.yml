@@ -17,6 +17,6 @@ build:
 
   # Run a command on each release
 run:
-  web: cd ${PROJECT_DIR} gunicorn --pythonpath '${PROJECT_DIR}/' gunicorn hoker_newz.wsgi:application
+  web: cd ${PROJECT_DIR} && gunicorn --pythonpath '${PROJECT_DIR}/' hoker_newz.wsgi:application
   celery: cd ${PROJECT_DIR} && celery -A hoker_newz worker
   celery-beat: cd ${PROJECT_DIR} && celery -A hoker_newz beat
