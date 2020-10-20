@@ -13,5 +13,4 @@ build:
     celery-beat: Dockerfile
 # Run a command on each release
 run:
-  web: chmod +x ${PROJECT_DIR}/entrypoint-webapp.sh &&
-       ${PROJECT_DIR}/entrypoint-webapp.sh
+  web: ls /home
