@@ -15,8 +15,8 @@ build:
     PROJECT_DIR: /home/hoker-newz
 release:
   image: web
-    command:
-      - ./entrypoint-heroku.sh
+  command:
+    - ./entrypoint-heroku.sh
 
 
   # Run a command on each release
