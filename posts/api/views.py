@@ -1,9 +1,11 @@
-from rest_framework import viewsets, permissions
+
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import viewsets, permissions, filters
 
 from comments.mixins import CommentMixin
 from hoker_newz.mixins import SerializerClassesMixin, PermissionClassesMixin
 from hoker_newz.permissions import IsOwner
-from posts.api import serializers
+from posts.api import serializers, filters as fs
 from posts.models import Post
 from upvotes.mixins import UpvoteMixin
 
@@ -30,4 +32,11 @@ class PostView(
         "create": serializers.PostCreateSerializer,
         "update": serializers.PostUpdateSerializer,
     }
+    filter_backends = (filters.SearchFilter,
+                       filters.OrderingFilter,
+                       DjangoFilterBackend,
+                       )
+    ordering = ('created_at', 'title',)
+    search_fields = ('title', 'body','author__username')
+    filterset_class = fs.PostFilterSet
     queryset = Post.objects.all()
