@@ -27,7 +27,6 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,8 +39,8 @@ INSTALLED_APPS = [
     #############################
     "rest_framework",
     "rest_framework_simplejwt",
-    'drf_yasg2',
-    'django_filters',
+    "drf_yasg2",
+    "django_filters",
     #############################
     "posts",
     "upvotes",
@@ -61,9 +60,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = "hoker_newz.urls"
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': (
-        'django_filters.rest_framework.DjangoFilterBackend',),
-
+    "DEFAULT_FILTER_BACKENDS": ("django_filters.rest_framework.DjangoFilterBackend",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),

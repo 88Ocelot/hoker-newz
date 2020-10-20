@@ -1,4 +1,3 @@
-
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets, permissions, filters
 
@@ -32,11 +31,15 @@ class PostView(
         "create": serializers.PostCreateSerializer,
         "update": serializers.PostUpdateSerializer,
     }
-    filter_backends = (filters.SearchFilter,
-                       filters.OrderingFilter,
-                       DjangoFilterBackend,
-                       )
-    ordering = ('created_at', 'title',)
-    search_fields = ('title', 'body','author__username')
+    filter_backends = (
+        filters.SearchFilter,
+        filters.OrderingFilter,
+        DjangoFilterBackend,
+    )
+    ordering = (
+        "created_at",
+        "title",
+    )
+    search_fields = ("title", "body", "author__username")
     filterset_class = fs.PostFilterSet
     queryset = Post.objects.all()

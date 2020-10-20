@@ -3,7 +3,7 @@ from datetime import timedelta
 
 import django
 
-if os.environ.get('ENV', 'LOCAL') == 'LOCAL':
+if os.environ.get("ENV", "LOCAL") == "LOCAL":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hoker_newz.settings.local")
 else:
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hoker_newz.settings.prod")
