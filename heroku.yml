@@ -13,4 +13,4 @@ build:
     celery-beat: Dockerfile
 # Run a command on each release
 run:
-  web: gunicorn hoker_newz.wsgi:application --reload -w 2 -b  0.0.0.0:8000
+  web: chmod +x heroku-entrypoint.sh && ./heroku-entrypoint.sh
