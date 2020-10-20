@@ -4,7 +4,7 @@ setup:
     - plan: heroku-postgresql
       as: db
     - plan: heroku-redis
-        as: reddis
+      as: reddis
 # Reference the Dockerfiles to build into Docker images
 build:
   docker:
