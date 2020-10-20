@@ -19,6 +19,7 @@ class CommentMixin:
         "comment": CommentCreateSerializers,
         "comments_list": CommentListSerializers,
         "comment_update": CommentSerializers,
+        "comment_detail": CommentSerializers,
     }
 
     @decorators.action(
@@ -50,10 +51,10 @@ class CommentMixin:
 
     @decorators.action(
         url_path="comments/(?P<comment_id>\d+)",
-        detail="comment-detail",
+        detail="comment-update",
         methods=(
             "PUT",
-            "PATCH",
+            "PATCH"
         ),
     )
     def comment_update(self, request, pk, comment_id):
@@ -65,6 +66,21 @@ class CommentMixin:
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.data)
+    @decorators.action(
+        url_path="comments/(?P<comment_id>\d+)",
+        detail="comment-detail",
+        methods=( "GET",),
+    )
+    def comment_detail(self, request, pk, comment_id):
+        queryset = Comment.objects.all()
+        obj = get_object_or_404(queryset, id=comment_id, post=pk)
+
+        serializer = self.get_serializer_class()(obj, context={'request': request,
+                                                               'comment_id':comment_id,
+                                                               'pk':pk})
+        return Response(serializer.data)
+
+
 
     def get_serializer_class(self):
         if self.action not in self.comments_serializers.keys():
