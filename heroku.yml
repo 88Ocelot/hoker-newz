@@ -11,6 +11,8 @@ build:
     web: Dockerfile
     celery: Dockerfile
     celery-beat: Dockerfile
+  config:
+    PROJECT_DIR: /home/hoker-newz
 
 
   # Run a command on each release
