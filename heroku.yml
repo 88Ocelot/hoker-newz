@@ -13,6 +13,9 @@ build:
     celery-beat: Dockerfile
   config:
     PROJECT_DIR: /home/hoker-newz
+  image: web
+    command:
+      - ./entrypoint-heroku.sh
 
 
   # Run a command on each release
