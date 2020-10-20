@@ -9,9 +9,11 @@ setup:
 build:
   docker:
     web: Dockerfile
-#    celery: Dockerfile
-#    celery-beat: Dockerfile
+    celery: Dockerfile
+    celery-beat: Dockerfile
 
   # Run a command on each release
 run:
-  web: chmod +x heroku-entrypoint.sh && ./heroku-entrypoint.sh
+  web: gunicorn hoker_newz.wsgi:application
+  celery: celery -A hoker_newz worker
+  celery-beat: celery -A hoker_newz beat
