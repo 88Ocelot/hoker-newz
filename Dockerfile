@@ -3,7 +3,7 @@ ARG PROJECT_DIR
 RUN apk update && \
     apk add --no-cache --virtual .build-deps gcc musl-dev && \
     apk add postgresql-dev
-COPY requirements.txt .
+COPY . .
 
 #RUN mkdir ${PROJECT_DIR} && cd ${PROJECT_DIR}
 RUN python -m pip install --upgrade pip && \
