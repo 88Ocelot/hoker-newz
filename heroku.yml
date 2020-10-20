@@ -12,8 +12,9 @@ build:
     celery: Dockerfile
     celery-beat: Dockerfile
 
+
   # Run a command on each release
 run:
-  web: gunicorn hoker_newz.wsgi:application
-  celery: celery -A hoker_newz worker
-  celery-beat: celery -A hoker_newz beat
+  web: gunicorn --pythonpath '${PROJECT_DIR}/' gunicorn hoker_newz.wsgi:application
+  celery: cd ${PROJECT_DIR} && celery -A hoker_newz worker
+  celery-beat: cd ${PROJECT_DIR} && celery -A hoker_newz beat
