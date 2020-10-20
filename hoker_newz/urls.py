@@ -23,7 +23,7 @@ from rest_framework import permissions
 from drf_yasg2.views import get_schema_view
 from drf_yasg2 import openapi
 
-if os.environ.get('ENV', 'LOCAL')=='LOCAL'
+if os.environ.get('ENV', 'LOCAL') == 'LOCAL':
     from hoker_newz.settings import local as settings
 else:
     from hoker_newz.settings import prod as settings
