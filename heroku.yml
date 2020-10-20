@@ -11,6 +11,14 @@ build:
     web: Dockerfile
     celery: Dockerfile
     celery-beat: Dockerfile
-# Run a command on each release
+  config:
+    POSTGRES_USER: db
+    POSTGRES_PASSWORD: db
+    POSTGRES_DB: db
+    DJANGO_SECRET_KEY: key
+    PROJECT_DIR: /home/hoker-newz
+    ENV: PROD
+
+  # Run a command on each release
 run:
   web: chmod +x heroku-entrypoint.sh && ./heroku-entrypoint.sh
