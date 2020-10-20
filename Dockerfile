@@ -1,5 +1,4 @@
 FROM python:3.8-alpine
-ARG PROJECT_DIR
 RUN apk update && \
     apk add --no-cache --virtual .build-deps gcc musl-dev && \
     apk add postgresql-dev
