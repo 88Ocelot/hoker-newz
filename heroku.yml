@@ -13,4 +13,4 @@ build:
     celery-beat: Dockerfile
 # Run a command on each release
 run:
-  web: ./heroku-entrypoint.sh
+  web: chmod u+x heroku-entrypoint.sh && ./heroku-entrypoint.sh
