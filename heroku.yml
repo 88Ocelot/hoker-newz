@@ -13,4 +13,4 @@ build:
     celery-beat: Dockerfile
 # Run a command on each release
 run:
-  web: ls /home
+  web: ./entrypoint-webapp.sh
