@@ -16,7 +16,7 @@ build:
 release:
   image: web
   command:
-    - cd ${PROJECT_DIR} &&./entrypoint-heroku.sh
+    - cd ${PROJECT_DIR} && chmod +x entrypoint-heroku.sh && ./entrypoint-heroku.sh
 
 
   # Run a command on each release
