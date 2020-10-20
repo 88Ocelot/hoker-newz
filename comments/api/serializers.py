@@ -5,15 +5,24 @@ from rest_framework.reverse import reverse
 
 from comments.models import Comment
 
+
 class CommentListSerializers(serializers.ModelSerializer):
     user = serializers.StringRelatedField()
 
-
-
     class Meta:
         model = Comment
-        fields = ('user', 'body', 'created_at', 'updated_at',)
-        read_only_fields = ('user', 'body', 'created_at', 'updated_at',)
+        fields = (
+            "user",
+            "body",
+            "created_at",
+            "updated_at",
+        )
+        read_only_fields = (
+            "user",
+            "body",
+            "created_at",
+            "updated_at",
+        )
 
 
 class CommentCreateSerializers(serializers.ModelSerializer):
@@ -22,7 +31,10 @@ class CommentCreateSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('user', 'body',)
+        fields = (
+            "user",
+            "body",
+        )
 
 
 class CommentSerializers(serializers.ModelSerializer):
@@ -30,4 +42,4 @@ class CommentSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('body',)
+        fields = ("body",)
