@@ -18,4 +18,6 @@ DATABASES = {
 CELERY_BROKER_URL = "redis://redis:6379"
 CELERY_RESULT_BACKEND = "redis://redis:6379"
 ALLOWED_HOSTS = ("localhost", "1270.0.0.1", "0.0.0.0")
+REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] = ('rest_framework.renderers.BrowsableAPIRenderer',
+                                              'rest_framework.renderers.JSONRenderer',)
 DEBUG = True
