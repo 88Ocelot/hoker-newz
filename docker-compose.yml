@@ -1,0 +1,34 @@
+
+version: "3.7"
+services:
+  db:
+    build:
+      context: .
+      dockerfile: pg-Dockerfile
+    ports:
+      - 5432:5432
+    volumes:
+      - data-volume:/var/lib/postgresql/data
+    env_file:
+      - .env
+
+  web-app:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - PROJECT_DIR=${PROJECT_DIR}
+    ports:
+      - 8000:8000
+    volumes:
+      - ./:${PROJECT_DIR}
+    env_file:
+      - .env
+    command: /bin/sh -c "chmod +x ${PROJECT_DIR}/entrypoint-webapp.sh &&
+                         ${PROJECT_DIR}/entrypoint-webapp.sh"
+
+
+volumes:
+  data-volume:
